@@ -3,6 +3,7 @@
 Ouvrir un terminale
 sudo apt-get update && sudo apt-get upgrade
 
+sudo apt install python3-setuptools
 sudo apt install python3-pip
 sudo apt install python3.8
 python3.8 -m pip install pip
@@ -62,6 +63,10 @@ gitpython >= 3.1.20
 # torchvision>=0.8.1
 
 cd ~
-sudo apt-get install -y libopenblas-base libopenmpi-dev
-wget https://nvidia.box.com/shared/static/fjtbno0vpo676a25cgvuqc1wty0fkkg6.whl -O torch-1.10.0-cp36-cp36m-linux_aarch64.whl
-pip3 install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
+
+pip install pyyaml
+git clone --recursive --branch 1.7 http://github.com/pytorch/pytorch
+cd pytorch
+python3.8 -m pip install -r requirements.txt
+python3.8 setup.py install
+
