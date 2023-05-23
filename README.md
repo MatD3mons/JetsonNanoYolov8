@@ -69,4 +69,4 @@ git clone --recursive --branch 1.7 http://github.com/pytorch/pytorch
 cd pytorch
 python3.8 -m pip install -r requirements.txt
 python3.8 setup.py install
-
+python3.8 setup.py develop && python -c "import torch"
