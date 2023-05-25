@@ -118,6 +118,9 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.8/pyrealsense2
 rm -rf folder
 
 pip install pyniryo
+pip install pillow
+
+sudo apt-get install python4-pybind11
 
 $ sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
 $ git clone --branch v0.8.1 https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download
