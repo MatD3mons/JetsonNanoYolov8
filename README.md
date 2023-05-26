@@ -9,11 +9,7 @@ sudo apt install python3.8
 python3.8 -m pip install pip
 sudo apt install nano
 nano ~/.bashrc
-#add in the section # some more aliases a new line containing
-"
-alias python='python3.8'
-alias python3='python3.8'
-"
+
 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${version} 0
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
@@ -39,8 +35,8 @@ sudo apt install python3.8-dev
 sudo apt install python3.8-venv
 python3.8 -m venv yolov5-env
 source yolov5-env/bin/activate
+python3 -m pip install -U pip
 
-j'ai pas réussi donc je teste yolov5 avec Ultralicts
 sudo apt update
 sudo apt upgrade
 sudo apt install -y python3-pip
