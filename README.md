@@ -1,3 +1,9 @@
+sudo apt remove --purge ubuntu-desktop
+sudo apt install lxdm
+sudo apt remove --purge gdm3
+sudo apt install lxde
+sudo apt install --reinstall lxdm
+
 # JetsonNanoYolov8
 
 Ouvrir un terminale
