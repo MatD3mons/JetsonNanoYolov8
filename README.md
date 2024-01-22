@@ -1,7 +1,9 @@
 # Instal on Jetson Nano, the YOLOv8, IntelL515 and Ned2
 
 Ouvrir un terminale
+```
 sudo apt-get update && sudo apt-get upgrade
+```
 
 ### 1) Change the environement desktop
 
