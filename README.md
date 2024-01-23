@@ -63,6 +63,15 @@ pip3 install -U pip
 ### update tensorRT
 
 //https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
+PS: on s'en fou de gdm3 only:
+sudo nano /etc/X11/xorg.conf
+and
+sudo nano /etc/update-manager/release-upgrades
+
+Remove the old python 2
+
+sudo apt remove python2
+sudo apt autoremove --purge
 
 update to ubuntu 20.04
 
