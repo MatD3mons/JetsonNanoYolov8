@@ -62,7 +62,13 @@ pip3 install -U pip
 
 ### update tensorRT
 
+//https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
+
 update to ubuntu 20.04
+
+```
+sudo nano /etc/update-manager/release-upgrades
+```
 
 ```
 // python3-libnvinfer-dev
