@@ -24,6 +24,8 @@ sudo apt install lxde
 sudo apt install --reinstall lxdm
 ```
 
+###3) install jtop
+
 #### 2) install nano to cha
 
 ```
@@ -45,7 +47,6 @@ Enable CONF_SWAPSIZE and put 4096, save and exit
 
 reboot  Jetson Nano.
 
-
 ### 4) install python3 and create env
 
 ```
@@ -59,6 +60,14 @@ source test/bin/activate
 pip3 install -U pip
 ```
 
+### update tensorRT
+
+update to ubuntu 20.04
+
+```
+// python3-libnvinfer-dev
+
+```
 
 je sais plus a quoi sa sert ??
 ```
