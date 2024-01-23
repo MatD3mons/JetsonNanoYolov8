@@ -7,6 +7,15 @@ sudo apt-get update && sudo apt-get upgrade
 
 ### 1) Change the environement desktop
 
+// https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiKwYDHn_ODAxUuTaQEHdOZB5UQFnoECBIQAQ&url=https%3A%2F%2Fjetsonhacks.com%2F2020%2F11%2F07%2Fsave-1gb-of-memory-use-lxde-on-your-jetson%2F&usg=AOvVaw3gYeR8tqblUYOyIO8kvTVI&opi=89978449
+
+reboot, select LXDE,
+```
+sudo dpkg-reconfigure lightdm
+```
+
+OR
+
 ```
 sudo apt remove --purge ubuntu-desktop
 sudo apt install lxdm
@@ -45,10 +54,9 @@ sudo apt install python3-pip
 sudo apt install python3.8
 sudo apt install python3.8-dev
 sudo apt install python3.8-venv
-python3.8 -m venv myenv
-source myenv/bin/activate
-python3 -m pip install -U pip
-pip3 install --upgrade pip
+python3.8 -m venv test
+source test/bin/activate
+pip3 install -U pip
 ```
 
 
