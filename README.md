@@ -2,7 +2,12 @@
 
 Ouvrir un terminale
 ```
-sudo apt-get update && sudo apt-get upgrade
+# refresh your system
+sudo apt-get update
+# need nano for editing some files
+sudo apt-get install nano
+sudo apt-get upgrade
+sudo apt-get autoremove
 ```
 
 ### 1) Change the environement desktop
