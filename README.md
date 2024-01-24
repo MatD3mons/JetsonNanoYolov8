@@ -44,6 +44,19 @@ sudo apt autoremove --purge
 
 update to ubuntu 20.04
 
+## OTHER
+
+```
+sudo apt install python3-setuptools
+sudo apt install python3-pip
+pip3 install -U pip
+reboot
+```
+
+le pip ne fonctionne qu'après le reboot
+
+https://github.com/NVIDIA/TensorRT/tree/release/8.2/python 
+
 #### 4) build TensorRT
 
 git clone -b releae/8.0 https://github.com/NVIDIA/TensorRT.git
@@ -74,17 +87,69 @@ if bug change by this :
 
 python3 -m pip install build/dist/tensorrt-8.2.1.9-cp38-none-linux_aarch64.whl
 
+### 6) install librairie python 
 
 ```
-sudo apt install python3-setuptools
-sudo apt install python3-pip
-pip3 install -U pip
-reboot
+pip install cython
+pip install scikit-build
+pip install wheel
+pip install numpy
+pip install pybind11
+pip install cppy
+pip install versioneer
+pip install pyyaml
+pip install pyniryo
+pip install pillow
+pip install pandas
+pip install tqdm
+pip install matplotlib
+pip install 'pillow<7'
 ```
 
-le pip ne fonctionne qu'après le reboot
+### 7) install pytorch librarie
 
-https://github.com/NVIDIA/TensorRT/tree/release/8.2/python 
+!
+! change gcc en 8 et g++ 8
+!
+
+https://qengineering.eu/install-pytorch-on-jetson-nano.html
+
+```
+# install the dependencies (if not already onboard)
+$ sudo apt-get install python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
+$ sudo -H pip3 install future
+$ sudo pip3 install -U --user wheel mock pillow
+$ sudo -H pip3 install testresources
+# above 58.3.0 you get version issues
+$ sudo -H pip3 install setuptools==58.3.0
+$ sudo -H pip3 install Cython
+# install gdown to download from Google drive
+$ sudo -H pip3 install gdown
+# download the wheel
+$ gdown https://drive.google.com/uc?id=1e9FDGt2zGS5C5Pms7wzHYRb0HuupngK1
+# install PyTorch 1.13.0
+$ sudo -H pip3 install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+# clean up
+$ rm torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+```
+
+
+before : 
+
+```
+git clone --recursive --branch 1.7 http://github.com/pytorch/pytorch
+cd pytorch
+python3.8 -m pip install -r requirements.txt
+python3.8 setup.py install
+python3.8 setup.py develop && python -c "import torch"
+```
+
+### 5) Ultralytics
+
+```
+pip install ultralytics
+```
+
 
 
 
@@ -125,34 +190,6 @@ sudo chmod 755 ./OpenCV-4-7-0.sh
 ./OpenCV-4-7-0.sh
 ```
 
-### 6) install librairie python 
-
-```
-pip install cython
-pip install scikit-build
-pip install wheel
-pip install numpy
-pip install pybind11
-pip install cppy
-pip install versioneer
-pip install pyyaml
-pip install pyniryo
-pip install pillow
-pip install pandas
-pip install tqdm
-pip install matplotlib
-pip install 'pillow<7'
-```
-
-### 7) install pytorch librarie
-
-```
-git clone --recursive --branch 1.7 http://github.com/pytorch/pytorch
-cd pytorch
-python3.8 -m pip install -r requirements.txt
-python3.8 setup.py install
-python3.8 setup.py develop && python -c "import torch"
-```
 
 # Installs librealsense and pyrealsense2
 
