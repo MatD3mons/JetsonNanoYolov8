@@ -44,6 +44,11 @@ sudo apt autoremove --purge
 
 update to ubuntu 20.04
 
+#### 4) build TensorRT
+
+https://github.com/NVIDIA/TensorRT/tree/release/8.2/python 
+
+
 ### 4) install python3 and create env
 
 ```
