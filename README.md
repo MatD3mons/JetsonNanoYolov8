@@ -46,14 +46,61 @@ update to ubuntu 20.04
 
 #### 4) build TensorRT
 
+git clone -b releae/8.0 https://github.com/NVIDIA/TensorRT.git
+cd  TensorRT
+git submodule update --init --recursive
+
+export EXT_PATH=~/external
+
+mkdir -p $EXT_PATH && cd $EXT_PATH
+git clone https://github.com/pybind/pybind11.git
+
+wget https://www.python.org/ftp/python/3.10.11/Python-3.8.10.tgz
+tar -xvf Python-3.8.10.tgz
+mkdir -p $EXT_PATH/python3.8/include
+cp -r Python-3.8.11/Include/* $EXT_PATH/python3.8/include
+
+wget http://ports.ubuntu.com/pool.main/p/python3.8/libpython3.8-dev_3.8.10-0ubuntu1~20.04.9_arm64.deb // not aarch64 ????
+ar x libpython3.8-dev*.deb
+mkdir debian && tar -xf data.tar.xz -C debian
+cp debian/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h python3.8/include/
+
+cd $TRT_OSSPATH/python
+TENSORRT_MODULE=tensorrt PYTHON_MAJOR_VERSION=3 PYTHON_MINOR_VERSION=8 TARGET_ARCHITECTURE=aarch64 ./build.sh 
+
+if bug change by this :
+
+// https://forums.developer.nvidia.com/t/tensorrt-on-jetson-with-python-3-9/196131/9
+
+python3 -m pip install build/dist/tensorrt-8.2.1.9-cp38-none-linux_aarch64.whl
+
+
+```
+sudo apt install python3-setuptools
+sudo apt install python3-pip
+pip3 install -U pip
+reboot
+```
+
+le pip ne fonctionne qu'après le reboot
+
 https://github.com/NVIDIA/TensorRT/tree/release/8.2/python 
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### 4) install python3 and create env
 
 ```
-sudo apt install python3-setuptools
-sudo apt install python3-pip
 sudo apt install python3.8
 sudo apt install python3.8-dev
 sudo apt install python3.8-venv
