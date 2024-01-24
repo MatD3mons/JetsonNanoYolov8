@@ -1,15 +1,5 @@
 # Instal on Jetson Nano, the YOLOv8, IntelL515 and Ned2
 
-Ouvrir un terminale
-```
-# refresh your system
-sudo apt-get update
-# need nano for editing some files
-sudo apt-get install nano
-sudo apt-get upgrade
-sudo apt-get autoremove
-```
-
 ### 1) Change the environement desktop
 
 // https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiKwYDHn_ODAxUuTaQEHdOZB5UQFnoECBIQAQ&url=https%3A%2F%2Fjetsonhacks.com%2F2020%2F11%2F07%2Fsave-1gb-of-memory-use-lxde-on-your-jetson%2F&usg=AOvVaw3gYeR8tqblUYOyIO8kvTVI&opi=89978449
@@ -19,26 +9,9 @@ reboot, select LXDE,
 sudo dpkg-reconfigure lightdm
 ```
 
-OR
+### 2) add more swap memory
 
-```
-sudo apt remove --purge ubuntu-desktop
-sudo apt install lxdm
-sudo apt remove --purge gdm3
-sudo apt install lxde
-sudo apt install --reinstall lxdm
-```
-
-###3) install jtop
-
-#### 2) install nano to cha
-
-```
-sudo apt install nano
-nano ~/.bashrc
-```
-
-### 3) add more swap memory
+// https://qengineering.eu/install-opencv-on-jetson-nano.html
 
 ```
 sudo apt-get install -y dphys-swapfile
@@ -52,6 +25,25 @@ Enable CONF_SWAPSIZE and put 4096, save and exit
 
 reboot  Jetson Nano.
 
+### 3) Update
+
+Ouvrir un terminale
+```
+# refresh your system
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+```
+
+### update ubuntu to 20.04
+
+//https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
+
+sudo apt remove python2
+sudo apt autoremove --purge
+
+update to ubuntu 20.04
+
 ### 4) install python3 and create env
 
 ```
@@ -63,30 +55,6 @@ sudo apt install python3.8-venv
 python3.8 -m venv test
 source test/bin/activate
 pip3 install -U pip
-```
-
-### update tensorRT
-
-//https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
-PS: on s'en fou de gdm3 only:
-sudo nano /etc/X11/xorg.conf
-and
-sudo nano /etc/update-manager/release-upgrades
-
-Remove the old python 2
-
-sudo apt remove python2
-sudo apt autoremove --purge
-
-update to ubuntu 20.04
-
-```
-sudo nano /etc/update-manager/release-upgrades
-```
-
-```
-// python3-libnvinfer-dev
-
 ```
 
 je sais plus a quoi sa sert ??
