@@ -133,6 +133,35 @@ $ sudo -H pip3 install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 $ rm torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 ```
 
+```
+Used with PyTorch 1.13.0
+
+Only for a Jetson Nano with Ubuntu 20.04
+
+# the dependencies
+$ sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
+$ sudo pip3 install -U pillow
+# install gdown to download from Google drive, if not done yet
+$ sudo -H pip3 install gdown
+# download TorchVision 0.14.0
+$ gdown https://drive.google.com/uc?id=19UbYsKHhKnyeJ12VPUwcSvoxJaX7jQZ2
+# install TorchVision 0.14.0
+$ sudo -H pip3 install torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
+# clean up
+$ rm torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
+```
+
+pip install --no-dependencies ultralytics
+
+use gcc and g++ 8
+
+https://github.com/Quengineering/Jetson-Nano-Ubuntu-20-images/issues/40
+install cmake 3.21.1
+
+
+pip3 install onnxsim
+pip3 install 
 
 before : 
 
