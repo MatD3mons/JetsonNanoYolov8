@@ -159,9 +159,29 @@ use gcc and g++ 8
 https://github.com/Quengineering/Jetson-Nano-Ubuntu-20-images/issues/40
 install cmake 3.21.1
 
-
+###  onnxsim
+```
 pip3 install onnxsim
-pip3 install 
+```
+### onnxruntime_gpu
+```
+https://github.com/microsoft/onnxruntime/issues/6124
+wget https://nvidia.box.com/shared/static/iizg3ggrtdkqawkmebbfixo7sce6j365.whl -o onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
+python3 -m pip install onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
+```
+#Bug 
+!! il faut numpy==1.23.1, la 1.24 est bugé due au remove du numpy.bool
+```
+sudo apt-get install curl ( si vous voulez test des images )
+```
+START YOLO EXPORT
+
+
+
+
+
+
+
 
 before : 
 
