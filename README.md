@@ -111,7 +111,7 @@ pip install 'pillow<7'
 !
 ! change gcc en 8 et g++ 8
 !
-
+pip install imutils
 https://qengineering.eu/install-pytorch-on-jetson-nano.html
 
 ```
