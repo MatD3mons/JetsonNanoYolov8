@@ -173,6 +173,14 @@ python3 -m pip install onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
 sudo apt-get install curl ( si vous voulez test des images )
 ```
 
+# install pycuda
+
+```
+$ export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
+$ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
+$ python3 -m pip install pycuda --user
+```
+
 # YOLOv8
 
 ```
