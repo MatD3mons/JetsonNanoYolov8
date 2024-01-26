@@ -202,6 +202,13 @@ gcc g++ 8
 
 https://github.com/mailrocketsystems/JetsonYoloV7-TensorRT 
 
+## YOLOV6
+```
+git clone https://github.com/meituan/YOLOv6
+wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
+python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
+```
+
 # jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
