@@ -209,6 +209,11 @@ wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
 python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
 ```
 
+## YOLOv5
+
+copie of yolov8
+but with yolov5nu.pt
+
 # jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
