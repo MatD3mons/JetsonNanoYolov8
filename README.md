@@ -152,8 +152,6 @@ $ sudo -H pip3 install torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
 $ rm torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
 ```
 
-pip install --no-dependencies ultralytics
-
 use gcc and g++ 8
 
 https://github.com/Quengineering/Jetson-Nano-Ubuntu-20-images/issues/40
@@ -174,11 +172,23 @@ python3 -m pip install onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
 ```
 sudo apt-get install curl ( si vous voulez test des images )
 ```
-START YOLO EXPORT
 
+# YOLOv8
 
+```
+pip install --no-dependencies ultralytics
+```
 
-jtop !!
+# Yolov7
+
+```
+git clone https://github.com/WongKinYiu/yolov7
+cd yolov7
+wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
+python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
+```
+
+# jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
 
