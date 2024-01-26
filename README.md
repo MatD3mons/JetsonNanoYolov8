@@ -196,6 +196,12 @@ wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
 python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
 ```
 
+Tensor RT
+
+gcc g++ 8
+
+https://github.com/mailrocketsystems/JetsonYoloV7-TensorRT 
+
 # jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
