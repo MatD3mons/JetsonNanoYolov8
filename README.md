@@ -219,6 +219,17 @@ but with yolov5nu.pt
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
 
 
+# YoloX
+pip install tabulate
+pip install pycocotools
+pip install loguru
+git clone https://github.com/Megvii-BaseDetection/YOLOX.git
+cd YOLOX
+wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_nano.pth
+wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_tiny.pth
+
+cp /tools/demo.py demo.py
+python tools/demo.py video -n yolox-s -c /path/to/your/yolox_s.pth --path /path/to/your/video --conf 0.25 --nms 0.45 --tsize 640 --device [cpu/gpu]
 
 
 before : 
