@@ -2,16 +2,12 @@
 
 ### 1) Change the environement desktop
 
-// https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiKwYDHn_ODAxUuTaQEHdOZB5UQFnoECBIQAQ&url=https%3A%2F%2Fjetsonhacks.com%2F2020%2F11%2F07%2Fsave-1gb-of-memory-use-lxde-on-your-jetson%2F&usg=AOvVaw3gYeR8tqblUYOyIO8kvTVI&opi=89978449
-
 reboot, select LXDE,
 ```
 sudo dpkg-reconfigure lightdm
 ```
 
 ### 2) add more swap memory
-
-// https://qengineering.eu/install-opencv-on-jetson-nano.html
 
 ```
 sudo apt-get install -y dphys-swapfile
@@ -39,11 +35,6 @@ sudo apt-get autoremove
 
 //https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
 
-sudo apt remove python2
-sudo apt autoremove --purge
-
-update to ubuntu 20.04
-
 ## OTHER
 
 ```
@@ -55,10 +46,8 @@ reboot
 
 le pip ne fonctionne qu'après le reboot
 
-https://github.com/NVIDIA/TensorRT/tree/release/8.2/python 
-
-#### 4) build TensorRT
-
+#### 4) build TensorRT 8.2.1.9
+```
 git clone -b releae/8.0 https://github.com/NVIDIA/TensorRT.git
 cd  TensorRT
 git submodule update --init --recursive
@@ -80,13 +69,13 @@ cp debian/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h python3.8/include/
 
 cd $TRT_OSSPATH/python
 TENSORRT_MODULE=tensorrt PYTHON_MAJOR_VERSION=3 PYTHON_MINOR_VERSION=8 TARGET_ARCHITECTURE=aarch64 ./build.sh 
-
+```
 if bug change by this :
 
 // https://forums.developer.nvidia.com/t/tensorrt-on-jetson-with-python-3-9/196131/9
-
+```
 python3 -m pip install build/dist/tensorrt-8.2.1.9-cp38-none-linux_aarch64.whl
-
+```
 ### 6) install librairie python 
 
 ```
@@ -107,11 +96,13 @@ pip install 'pillow<7'
 ```
 
 ### 7) install pytorch librarie
+```
+change gcc en 8 et g++ 8
+```
 
-!
-! change gcc en 8 et g++ 8
-!
+```
 pip install imutils
+```
 https://qengineering.eu/install-pytorch-on-jetson-nano.html
 
 ```
@@ -133,11 +124,11 @@ $ sudo -H pip3 install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 $ rm torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 ```
 
-```
 Used with PyTorch 1.13.0
 
 Only for a Jetson Nano with Ubuntu 20.04
 
+```
 # the dependencies
 $ sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
 $ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
@@ -196,12 +187,6 @@ wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
 python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
 ```
 
-Tensor RT
-
-gcc g++ 8
-
-https://github.com/mailrocketsystems/JetsonYoloV7-TensorRT 
-
 ## YOLOV6
 ```
 git clone https://github.com/meituan/YOLOv6
@@ -231,55 +216,7 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 cp /tools/demo.py demo.py
 python tools/demo.py video -n yolox-s -c /path/to/your/yolox_s.pth --path /path/to/your/video --conf 0.25 --nms 0.45 --tsize 640 --device [cpu/gpu]
 
-
-before : 
-
-```
-git clone --recursive --branch 1.7 http://github.com/pytorch/pytorch
-cd pytorch
-python3.8 -m pip install -r requirements.txt
-python3.8 setup.py install
-python3.8 setup.py develop && python -c "import torch"
-```
-
-### 5) Ultralytics
-
-```
-pip install ultralytics
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 4) install python3 and create env
-
-```
-sudo apt install python3.8
-sudo apt install python3.8-dev
-sudo apt install python3.8-venv
-python3.8 -m venv test
-source test/bin/activate
-pip3 install -U pip
-```
-
-je sais plus a quoi sa sert ??
-```
-//sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${version} 0
-//sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-//sudo update-alternatives --config python3
-```
-
-### 5) install OpenCV
+### install OpenCV
 
 ```
 wget https://github.com/Qengineering/Install-OpenCV-Jetson-Nano/raw/main/OpenCV-4-7-0.sh 
@@ -287,7 +224,6 @@ add this flag https://forums.developer.nvidia.com/t/cannot-build-opencv-for-pyth
 sudo chmod 755 ./OpenCV-4-7-0.sh 
 ./OpenCV-4-7-0.sh
 ```
-
 
 # Installs librealsense and pyrealsense2
 
