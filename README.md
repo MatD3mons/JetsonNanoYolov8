@@ -224,7 +224,7 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_tiny.pth
 
 cd tools
-python3 demo.py webcam -n yolox-nano -c yolox_nano.pth --camid 0 --conf 0.25 --nms 0.45 --tsize 640 --save_result --device
+python3 demo.py webcam -n yolox-nano -c ../yolox_nano.pth --camid 0 --conf 0.25 --nms 0.45 --tsize 640 --save_result --device
 ```
 ### install OpenCV
 
