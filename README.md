@@ -184,7 +184,7 @@ python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted
 
 ```
 pip install --no-dependencies ultralytics
-yolo detect predict model=yolov8n.pt source=0 show=True NMS=True
+yolo detect predict model=yolov8n.pt source=0 show=True nms=True
 ```
 
 # Yolov7
@@ -204,16 +204,17 @@ python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
 ```
 
 ## YOLOv5
-
+```
 copie of yolov8
 but with yolov5nu.pt
-
+```
 # jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
 
 
 # YoloX
+```
 pip install tabulate
 pip install pycocotools
 pip install loguru
@@ -222,9 +223,9 @@ cd YOLOX
 wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_nano.pth
 wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_tiny.pth
 
-cp /tools/demo.py demo.py
-python tools/demo.py video -n yolox-s -c /path/to/your/yolox_s.pth --path /path/to/your/video --conf 0.25 --nms 0.45 --tsize 640 --device [cpu/gpu]
-
+cd tools
+python3 demo.py webcam -n yolox-nano -c yolox_nano.pth --camid 0 --conf 0.25 --nms 0.45 --tsize 640 --save_result --device
+```
 ### install OpenCV
 
 ```
