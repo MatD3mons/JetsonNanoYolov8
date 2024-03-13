@@ -176,6 +176,8 @@ $ python3 -m pip install pycuda --user
 
 ```
 pip3 install IPython
+wget https://github.com/WongKinYiu/yolov9/releases/download/v0.1/yolov9-c-converted.pt
+python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted.pt'
 ```
 
 # YOLOv8
