@@ -184,8 +184,7 @@ python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted
 
 ```
 pip install --no-dependencies ultralytics
-wget https://github.com/WongKinYiu/yolov9/releases/download/v0.1/yolov9-c-converted.pt
-python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted.pt'
+yolo detect predict model=yolov8n.pt source=0 show=True NMS=True
 ```
 
 # Yolov7
