@@ -31,7 +31,7 @@ wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
 python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
 ```
 
-#### YOLOv8
+#### YOLOv5
 ```
 yolo detect predict model=yolov5n.pt source=0 show=True nms=True
 yolo detect predict model=yolov5s.pt source=0 show=True nms=True
