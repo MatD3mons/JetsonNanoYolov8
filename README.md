@@ -1,7 +1,4 @@
-# Instal on Jetson Nano, the YOLOv9 - v8 - V7 - V6 - V5, IntelL515 and Ned2
-
 # Commandes ( After installation and move in good folder ):
-
 #### YOLOv9
 ```
 wget https://github.com/WongKinYiu/yolov9/releases/download/v0.1/yolov9-c-converted.pt
@@ -11,42 +8,35 @@ or
 ```
 yolo detect predict model=yolov9c.pt source=0 show=True nms=True
 ```
-
 #### YOLOv8
 ```
 yolo detect predict model=yolov8n.pt source=0 show=True nms=True
 yolo detect predict model=yolov8s.pt source=0 show=True nms=True
 yolo detect predict model=yolov8m.pt source=0 show=True nms=True
 ```
-
 #### YOLOv7
 ```
 wget wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
 python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
 ```
-
 #### YOLOv6
 ```
 wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
 python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
 ```
-
 #### YOLOv5
 ```
 yolo detect predict model=yolov5n.pt source=0 show=True nms=True
 yolo detect predict model=yolov5s.pt source=0 show=True nms=True
 yolo detect predict model=yolov5m.pt source=0 show=True nms=True
 ```
-
-### 1) Change the environement desktop
-
+# Instal on Jetson Nano, the YOLOv9 - v8 - V7 - V6 - V5, IntelL515 and Ned2
+#### 1) Change the environement desktop
 reboot, select LXDE,
 ```
 sudo dpkg-reconfigure lightdm
 ```
-
-### 2) add more swap memory
-
+#### 2) add more swap memory
 ```
 sudo apt-get install -y dphys-swapfile
 sudo nano /sbin/dphys-swapfile
@@ -56,11 +46,8 @@ Change CONF_MAXSWAP to 4096, save and exit
 sudo nano /etc/dphys-swapfile
 ```
 Enable CONF_SWAPSIZE and put 4096, save and exit
-
 reboot  Jetson Nano.
-
-### 3) Update
-
+#### 3) Update
 Ouvrir un terminale
 ```
 # refresh your system
@@ -68,22 +55,19 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get autoremove
 ```
-
-### update ubuntu to 20.04
-
+#### update ubuntu to 20.04
+TUTO à suivre
+```
 //https://qengineering.eu/install-ubuntu-20.04-on-jetson-nano.html
-
-## OTHER
-
+```
+#### OTHER
 ```
 sudo apt install python3-setuptools
 sudo apt install python3-pip
 pip3 install -U pip
 reboot
 ```
-
 le pip ne fonctionne qu'après le reboot
-
 #### 4) build TensorRT 8.2.1.9
 ```
 git clone -b releae/8.0 https://github.com/NVIDIA/TensorRT.git
@@ -108,13 +92,11 @@ cp debian/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h python3.8/include/
 cd $TRT_OSSPATH/python
 TENSORRT_MODULE=tensorrt PYTHON_MAJOR_VERSION=3 PYTHON_MINOR_VERSION=8 TARGET_ARCHITECTURE=aarch64 ./build.sh 
 ```
-if bug change by this :
-
-// https://forums.developer.nvidia.com/t/tensorrt-on-jetson-with-python-3-9/196131/9
+#### Bug : solution : https://forums.developer.nvidia.com/t/tensorrt-on-jetson-with-python-3-9/196131/9
 ```
 python3 -m pip install build/dist/tensorrt-8.2.1.9-cp38-none-linux_aarch64.whl
 ```
-### 6) install librairie python 
+#### 6) install librairie python 
 
 ```
 pip install cython
@@ -132,16 +114,12 @@ pip install tqdm
 pip install matplotlib
 pip install 'pillow<7'
 ```
-
-### 7) install pytorch librarie
-```
+#### 7) install pytorch librarie
 change gcc en 8 et g++ 8
-```
-
 ```
 pip install imutils
 ```
-https://qengineering.eu/install-pytorch-on-jetson-nano.html
+#### https://qengineering.eu/install-pytorch-on-jetson-nano.html
 
 ```
 # install the dependencies (if not already onboard)
@@ -161,11 +139,8 @@ $ sudo -H pip3 install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 # clean up
 $ rm torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
 ```
-
 Used with PyTorch 1.13.0
-
 Only for a Jetson Nano with Ubuntu 20.04
-
 ```
 # the dependencies
 $ sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
@@ -180,71 +155,52 @@ $ sudo -H pip3 install torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
 # clean up
 $ rm torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
 ```
-
 use gcc and g++ 8
-
 https://github.com/Quengineering/Jetson-Nano-Ubuntu-20-images/issues/40
 install cmake 3.21.1
-
-###  onnxsim
+####  onnxsim
 ```
 pip3 install onnxsim
 ```
-### onnxruntime_gpu
+#### onnxruntime_gpu
 ```
 https://github.com/microsoft/onnxruntime/issues/6124
 wget https://nvidia.box.com/shared/static/iizg3ggrtdkqawkmebbfixo7sce6j365.whl -o onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
 python3 -m pip install onnxruntime_gpu-1.16.0-cp38-cp38-linux_aarch64.whl
 ```
-#Bug 
-!! il faut numpy==1.23.1, la 1.24 est bugé due au remove du numpy.bool
+#### Bug : numpy==1.23.1, la 1.24 est bugé due au remove du numpy.bool
 ```
 sudo apt-get install curl ( si vous voulez test des images )
 ```
-
-# install pycuda
-
+#### install pycuda
 ```
 $ export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
 $ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
 $ python3 -m pip install pycuda --user
 ```
-
-## YOLOv9
-
+# Install Requirement for each YOLO
+#### YOLOv9
 ```
 pip3 install IPython
 git clone https://github.com/WongKinYiu/yolov9
 ```
-
-## YOLOv8
-
+####  YOLOv8
 ```
 pip install --no-dependencies ultralytics
 ```
-
-## Yolov7
-
+####  Yolov7
 ```
 git clone https://github.com/WongKinYiu/yolov7
 ```
-
-## YOLOV6
+####  YOLOV6
 ```
 git clone https://github.com/meituan/YOLOv6
 ```
-
-## YOLOv5
+####  YOLOv5
 ```
 pip install --no-dependencies ultralytics
 ```
-
-# jtop !!
-
-attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
-
-
-# YoloX
+####  YoloX
 ```
 pip install tabulate
 pip install pycocotools
@@ -257,8 +213,10 @@ wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yo
 cd tools
 python3 demo.py webcam -n yolox-nano -c ../yolox_nano.pth --camid 0 --conf 0.25 --nms 0.45 --tsize 640 --save_result --device
 ```
-### install OpenCV
+# jtop !!
+attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
 
+# OpenCV
 ```
 wget https://github.com/Qengineering/Install-OpenCV-Jetson-Nano/raw/main/OpenCV-4-7-0.sh 
 add this flag https://forums.developer.nvidia.com/t/cannot-build-opencv-for-python3-9/211072/10
@@ -266,8 +224,7 @@ sudo chmod 755 ./OpenCV-4-7-0.sh
 ./OpenCV-4-7-0.sh
 ```
 
-# Installs librealsense and pyrealsense2
-
+# librealsense and pyrealsense2
 #### Install the core packages required to build librealsense libs
 ```
 sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
@@ -276,23 +233,19 @@ sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 ```
 sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 ```
-
-# Install LibRealSense from source
+#### Install LibRealSense from source
 ```
 git clone https://github.com/IntelRealSense/librealsense.git
 cd ./librealsense
 ```
-
 #### Make sure that your RealSense cameras are disconnected at this point
 ```
 ./scripts/setup_udev_rules.sh
 ```
-
 #### Now the build
 ```
 mkdir build && cd build
 ```
-
 #### Install CMake with Python bindings (that's what the -DBUILD flag is for)
 #### see link: https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python#building-from-source
 ```
@@ -304,18 +257,7 @@ cmake ../ -DBUILD_PYTHON_BINDINGS:bool=true
 ```
 sudo make uninstall && sudo make clean && sudo make -j4 && sudo make install
 ```
-
-## Export pyrealsense2 to your PYTHONPATH so `import pyrealsense2` works
+#### Export pyrealsense2 to your PYTHONPATH so `import pyrealsense2` works
 ```
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.8/pyrealsense2
-```
-
-# install torchvision librairie
-```
-sudo apt-get install python4-pybind11
-sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
-git clone --branch v0.8.1 https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download
-cd torchvision
-export BUILD_VERSION=0.8.0  # where 0.x.0 is the torchvision version  
-python3 setup.py install
 ```
