@@ -1,5 +1,43 @@
 # Instal on Jetson Nano, the YOLOv9 - v8 - V7 - V6 - V5, IntelL515 and Ned2
 
+# Commandes ( After installation and move in good folder ):
+
+#### YOLOv9
+```
+wget https://github.com/WongKinYiu/yolov9/releases/download/v0.1/yolov9-c-converted.pt
+python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted.pt'
+```
+or
+```
+yolo detect predict model=yolov9c.pt source=0 show=True nms=True
+```
+
+#### YOLOv8
+```
+yolo detect predict model=yolov8n.pt source=0 show=True nms=True
+yolo detect predict model=yolov8s.pt source=0 show=True nms=True
+yolo detect predict model=yolov8m.pt source=0 show=True nms=True
+```
+
+#### YOLOv7
+```
+wget wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
+python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
+```
+
+#### YOLOv6
+```
+wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
+python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
+```
+
+#### YOLOv8
+```
+yolo detect predict model=yolov5n.pt source=0 show=True nms=True
+yolo detect predict model=yolov5s.pt source=0 show=True nms=True
+yolo detect predict model=yolov5m.pt source=0 show=True nms=True
+```
+
 ### 1) Change the environement desktop
 
 reboot, select LXDE,
@@ -172,42 +210,35 @@ $ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
 $ python3 -m pip install pycuda --user
 ```
 
-# YOLOv9
+## YOLOv9
 
 ```
 pip3 install IPython
-wget https://github.com/WongKinYiu/yolov9/releases/download/v0.1/yolov9-c-converted.pt
-python detect.py --source 0 --img 640 --device 0 --weights './yolov9-c-converted.pt'
+git clone https://github.com/WongKinYiu/yolov9
 ```
 
-# YOLOv8
+## YOLOv8
 
 ```
 pip install --no-dependencies ultralytics
-yolo detect predict model=yolov8n.pt source=0 show=True nms=True
 ```
 
-# Yolov7
+## Yolov7
 
 ```
 git clone https://github.com/WongKinYiu/yolov7
-cd yolov7
-wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
-python3 detect.py --weights yolov7-tiny.pt --conf 0.25 --img-size 640 --source 0
 ```
 
 ## YOLOV6
 ```
 git clone https://github.com/meituan/YOLOv6
-wget https://github.com/meituan/YOLOv6/releases/download/0.4.0/yolov6n.pt
-python tools/infer.py --weights yolov6s.pt --webcam --webcam-addr 0
 ```
 
 ## YOLOv5
 ```
-copie of yolov8
-but with yolov5nu.pt
+pip install --no-dependencies ultralytics
 ```
+
 # jtop !!
 
 attention la dernière mise a jour ne fonctionne pas, la 4.0.0 si 
